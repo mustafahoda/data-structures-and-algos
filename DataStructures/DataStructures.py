@@ -371,26 +371,76 @@ class Graph:
         for vertex in self.graph.keys():
             visited_dict[vertex] = False
 
-        self.DFSUtil(entry_point, visited_dict)
+        path = []
 
+        self.DFSUtil(entry_point, visited_dict, path)
+        return path
 
-
-    def DFSUtil(self, entry_point, visited_dict):
+    def DFSUtil(self, entry_point, visited_dict, path):
         print("visited_dict: %s" % visited_dict)
 
         print("s: %s" % entry_point)
         visited_dict[entry_point] = True
+        path.append(entry_point)
 
         adjacent = self.graph[entry_point]
 
         for vertex in adjacent:
             if visited_dict[vertex] == False:
-                self.DFSUtil(vertex, visited_dict)
+                self.DFSUtil(vertex, visited_dict, path)
 
+    def find_path_between_two_nodes(self, begin_point, end_point):
 
+        # Create a dictionary to keep track of visited nodes. Initialized to False
+        visited_dict = {}
 
+        # a 2D array of paths that we have completed
+        paths = []
 
+        next = self.graph[begin_point]
+        # set_trace()
 
+        for i in next:
+            # for every next step, we reset all the visited nodes back to false
+            for node in self.graph.keys():
+                visited_dict[node] = False
+
+            path = [begin_point]
+            visited_dict[begin_point] = True
+
+            print("Paths: %s" % paths)
+            set_trace()
+            # appending the new path the end into the paths list
+            paths.append(self.find_path_between_two_nodes_utils(i, end_point, visited_dict, path))
+
+        return paths
+
+    def find_path_between_two_nodes_utils(self, begin_point, end_point, visited_dict, path):
+
+        path.append(begin_point)
+        visited_dict[begin_point] = True
+        adjacent = self.graph[begin_point]
+
+        # set_trace()
+
+        while False in visited_dict.values():
+            for node in adjacent:
+                if node == end_point:
+                    path.append(end_point)
+                    visited_dict[end_point] = True
+                    return path
+
+                if visited_dict[node] == False:
+                    # set_trace()
+                    self.find_path_between_two_nodes_utils(node, end_point, visited_dict, path)
+
+            # for i in adjacent:
+            #     if i == end_point:
+            #         return
+            #     else:
+            #         self.find_path_between_two_nodes_utils(i, end_point, visited_dict)
+
+        return path
 
     def print(self):
         print(self.graph)
