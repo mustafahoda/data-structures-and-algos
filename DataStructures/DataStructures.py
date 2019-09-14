@@ -186,6 +186,36 @@ class BinarySearchTree:
         else:
             return False
 
+    def print_DFS(self, root, order):
+        # set_trace()
+
+        if order == "in":
+            if root != None:
+               self.print_DFS(root.left, order)
+               print(root.value)
+               self.print_DFS(root.right, order)
+
+        if order == "pre":
+            if root != None:
+               print(root.value)
+               self.print_DFS(root.left, order)
+               self.print_DFS(root.right, order)
+
+        if order == "post":
+            if root != None:
+                self.print_DFS(root.left, order)
+                self.print_DFS(root.right, order)
+                print(root.value)
+
+    def print_BFS(self, root):
+
+        if root:
+            print(root.value)
+            self.print_BFS(root.left)
+            self.print_BFS(root.right)
+
+
+
 class Queue:
     '''
 
@@ -397,13 +427,12 @@ class Graph:
             visited_dict[node] = False
 
         # a 2D array of paths that we have completed
-        paths = []
         path = []
 
-        self.find_path_between_two_nodes_utils(begin_point, end_point, visited_dict, path, paths)
+        self.find_path_between_two_nodes_utils(begin_point, end_point, visited_dict, path)
 
 
-    def find_path_between_two_nodes_utils(self, begin_point, end_point, visited_dict, path, paths):
+    def find_path_between_two_nodes_utils(self, begin_point, end_point, visited_dict, path):
 
         visited_dict[begin_point] = True
         path.append(begin_point)
@@ -415,7 +444,7 @@ class Graph:
             adjacent = self.graph[begin_point]
             for node in adjacent:
                 if visited_dict[node] == False:
-                    self.find_path_between_two_nodes_utils(node, end_point, visited_dict, path, paths)
+                    self.find_path_between_two_nodes_utils(node, end_point, visited_dict, path)
 
         path.pop()
         visited_dict[begin_point] = False
