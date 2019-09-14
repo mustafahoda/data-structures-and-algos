@@ -364,6 +364,33 @@ class Graph:
                 if visited_dict[i] == False:
                     q.append(i)
 
+    def DFS(self, entry_point):
+
+        # create a dictionary that will initialize all the nodes as not being visited
+        visited_dict = {}
+        for vertex in self.graph.keys():
+            visited_dict[vertex] = False
+
+        self.DFSUtil(entry_point, visited_dict)
+
+
+
+    def DFSUtil(self, entry_point, visited_dict):
+        print("visited_dict: %s" % visited_dict)
+
+        print("s: %s" % entry_point)
+        visited_dict[entry_point] = True
+
+        adjacent = self.graph[entry_point]
+
+        for vertex in adjacent:
+            if visited_dict[vertex] == False:
+                self.DFSUtil(vertex, visited_dict)
+
+
+
+
+
 
     def print(self):
         print(self.graph)

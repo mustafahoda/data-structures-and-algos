@@ -71,7 +71,7 @@ if __name__ == "__main__":
     g.add_vertex(2, [0, 3])
     g.add_vertex(3, [3])
     g.print()
-    g.BFS(2)
+    g.DFS(2)
 
 
 
