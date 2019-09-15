@@ -23,4 +23,4 @@ def n_factorial_recursion(n):
     return n * n_factorial_recursion(n-1)
 
 
-print(n_factorial_regit cursion(7))
+print(n_factorial_recursion(7))
