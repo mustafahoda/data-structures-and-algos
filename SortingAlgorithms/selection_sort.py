@@ -85,4 +85,5 @@ if __name__ == "__main__":
     #             }
     # print(find_min([2, 7, 4, 1, 5, 3], visited))
 
-    print(selection_sort_in_place([2, 7, 4, 1, 5, 3]))
+    # print(selection_sort_in_place([2, 7, 4, 1, 5, 3]))
+    print(selection_sort_in_place([64, 25, 12, 22, 11]))
