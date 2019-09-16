@@ -35,11 +35,7 @@ def merge_sort(A: list) -> list:
     mid = len(A) // 2
     L = A[:mid]
     R = A[mid:]
-    print("L: %s" % L)
-    print("R: %s" % R)
 
-
-    # set_trace()
     if L is not None:
         L = merge_sort(L)
 
