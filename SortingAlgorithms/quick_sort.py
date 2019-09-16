@@ -28,35 +28,43 @@
 from pdb import set_trace
 
 def quicksort(A: list) -> list:
+    return _quicksort(A, 0, len(A) - 1)
 
-    print("A before partition: %s" % A)
+def _quicksort(A: list, start: int, end: int) -> list:
 
-    if len(A) <= 1:
+
+    if start >= end:
         return A
 
-    pIndex = partition(A)
-
+    print("A before partition: %s" % A)
+    pIndex = partition(A, start, end)
     print("A after partition: %s" % A)
+    print("_____________________________")
 
-    set_trace()
 
 
-    quicksort(A[:pIndex])
-    quicksort(A[pIndex + 1:])
+    _quicksort(A, start, pIndex - 1)
+    _quicksort(A, pIndex, end)
 
     return A
 
-def partition(A):
-    pivot = A[-1]
+def partition(A, start: int, end: int):
 
-    i = 0
-    pIndex = 0
+    # set_trace()
 
-    while i != len(A) - 1:
+    pivot = A[end]
+
+    i = start
+    pIndex = start
+
+    # set_trace()
+
+    while i < end:
 
         # set_trace()
 
-        if pivot > A[i]:
+        if pivot >= A[i]:
+
             # implement swap between pIndex and A[i]
 
             temp = A[i]
@@ -70,14 +78,19 @@ def partition(A):
     # once we reach the element before the pivot, we swap pivot into pIndex
     temp = A[pIndex]
     A[pIndex] = pivot
-    A[-1] = temp
+    A[end] = temp
 
+    # set_trace()
+    print(A)
     return pIndex
 
 if __name__ == "__main__":
     A = [7,2,1,6,8,5,3,4]
     B = [4,5,6,2,3,9,10,2,1,5,3,100,23,42,1]
+    C = [7,2,3,8,4]
+    D = [2,3]
     # print(quicksort(B))
     # print(partition(A, 0))
     # print(partition(A))
-    print(quicksort(A))
+    print(quicksort(B))
+    # print(partition(D, 0, 1))
