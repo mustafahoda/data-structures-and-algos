@@ -66,7 +66,22 @@ class LinkedList:
         cur_node.next = new_next
         return
 
+    def reverse_linked_list(self, head: LinkedListNode):
 
+        curr = head
+        prev = None
+        next = None
+
+        while curr != None:
+            next = curr.next  # get the next node
+
+            curr.next = prev  # make the current next the previous
+
+            # proceed to move forward both the curr and prev
+            prev = curr
+            curr = next
+
+        self.head = prev
 
 class Stack:
     '''

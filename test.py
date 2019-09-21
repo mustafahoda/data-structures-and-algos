@@ -1,4 +1,5 @@
 from DataStructures import DataStructures
+from CommonProblems import reverse_linked_list
 from pdb import set_trace
 
 if __name__ == "__main__":
@@ -91,17 +92,33 @@ if __name__ == "__main__":
     # # print(g.DFS(2))
     # print(g.find_path_between_two_nodes(2,3))
 
-    tree = DataStructures.BinarySearchTree()
-    tree.insert(1)
-    tree.insert(2)
-    tree.insert(3)
-    tree.insert(4)
-    tree.insert(5)
-    # tree.insert(7)
-    # tree.insert(12)
-    # tree.insert(15)
-    # tree.insert(15)
-    # tree.print_tree()
-    # tree.print_DFS(tree.root, 'in')
-    tree.print_BFS(tree.root)
+    # tree = DataStructures.BinarySearchTree()
+    # tree.insert(1)
+    # tree.insert(2)
+    # tree.insert(3)
+    # tree.insert(4)
+    # tree.insert(5)
+    # # tree.insert(7)
+    # # tree.insert(12)
+    # # tree.insert(15)
+    # # tree.insert(15)
+    # # tree.print_tree()
+    # # tree.print_DFS(tree.root, 'in')
+    # tree.print_BFS(tree.root)
+
+    LinkedList = DataStructures.LinkedList()
+    LinkedList.append(1)
+    LinkedList.append(2)
+    LinkedList.append(3)
+    LinkedList.append(4)
+    # set_trace()
+    LinkedList.print()
+    print(LinkedList.reverse_linked_list(LinkedList.head.next))
+    LinkedList.print()
+    set_trace()
+
+    # LinkedList = DataStructures.LinkedListNode()
+    # LinkedList.data
+
+
 
