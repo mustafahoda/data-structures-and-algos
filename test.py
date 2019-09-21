@@ -1,6 +1,4 @@
-from DataStructures import DataStructures
-from CommonProblems import reverse_linked_list
-from pdb import set_trace
+from SortingAlgorithms import sorting_algos
 
 if __name__ == "__main__":
     # LL = DataStructures.LinkedList(3)
@@ -106,19 +104,20 @@ if __name__ == "__main__":
     # # tree.print_DFS(tree.root, 'in')
     # tree.print_BFS(tree.root)
 
-    LinkedList = DataStructures.LinkedList()
-    LinkedList.append(1)
-    LinkedList.append(2)
-    LinkedList.append(3)
-    LinkedList.append(4)
+    # LinkedList = DataStructures.LinkedList()
+    # LinkedList.append(1)
+    # LinkedList.append(2)
+    # LinkedList.append(3)
+    # LinkedList.append(4)
+    # # set_trace()
+    # LinkedList.print()
+    # print(LinkedList.reverse_linked_list(LinkedList.head.next))
+    # LinkedList.print()
     # set_trace()
-    LinkedList.print()
-    print(LinkedList.reverse_linked_list(LinkedList.head.next))
-    LinkedList.print()
-    set_trace()
 
     # LinkedList = DataStructures.LinkedListNode()
     # LinkedList.data
 
 
-
+    # test_bubble_sort()
+    print(sorting_algos.bubble_sort([1,3,2]))
