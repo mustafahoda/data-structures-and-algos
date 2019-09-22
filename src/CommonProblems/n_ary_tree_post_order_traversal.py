@@ -25,10 +25,10 @@ class Node:
 
 from pdb import set_trace
 
-if __name__ == "__main__":
-    node = Node()
-    set_trace()
-
-    {"$id": "1", "children": [
-        {"$id": "2", "children": [{"$id": "5", "children": [], "val": 5}, {"$id": "6", "children": [], "val": 6}],
-         "val": 3}, {"$id": "3", "children": [], "val": 2}, {"$id": "4", "children": [], "val": 4}], "val": 1}
+# if __name__ == "__main__":
+#     node = Node()
+#     set_trace()
+#
+#     {"$id": "1", "children": [
+#         {"$id": "2", "children": [{"$id": "5", "children": [], "val": 5}, {"$id": "6", "children": [], "val": 6}],
+#          "val": 3}, {"$id": "3", "children": [], "val": 2}, {"$id": "4", "children": [], "val": 4}], "val": 1}
