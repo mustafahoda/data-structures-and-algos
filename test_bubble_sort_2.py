@@ -1,4 +1,3 @@
-import pytest
 from SortingAlgorithms import sorting_algos
 
 import pytest
