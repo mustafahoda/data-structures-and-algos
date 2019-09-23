@@ -1,3 +1,5 @@
+list_of_sorting_algos = ['quick', 'bubble', 'merge', 'insertion', 'selection']
+
 # ---------BUBBLE SORT-------------
 def bubble_sort(A: list) -> list:
 
