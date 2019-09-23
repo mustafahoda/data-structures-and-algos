@@ -1,8 +1,3 @@
-import sys, os
-dir = os.getcwd()
-sys.path.insert(0, dir)
-
-
 from src.SortingAlgorithms import sorting_algos
 import pytest
 
