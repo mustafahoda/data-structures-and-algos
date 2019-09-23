@@ -81,7 +81,6 @@ def merge(A: list, B: list) -> list:
     return C
 
 def merge_sort(A: list) -> list:
-    print("A: %s" % A)
     if len(A) == 1:
         return A
 
@@ -101,7 +100,6 @@ def merge_sort(A: list) -> list:
 
     merged = merge(L, R)
 
-    print("Merged: %s" % merged)
     return merged
 
 
