@@ -106,7 +106,7 @@ def merge_sort(A: list) -> list:
 
 
 # ---------------------QUICK SORT--------------------------------------
-def quicksort(A: list) -> list:
+def quick_sort(A: list) -> list:
     return _quicksort(A, 0, len(A) - 1)
 
 def _quicksort(A: list, start: int, end: int) -> list:
@@ -115,12 +115,7 @@ def _quicksort(A: list, start: int, end: int) -> list:
     if start >= end:
         return A
 
-    print("A before partition: %s" % A)
     pIndex = partition(A, start, end)
-    print("A after partition: %s" % A)
-    print("_____________________________")
-
-
 
     _quicksort(A, start, pIndex - 1)
     _quicksort(A, pIndex, end)
@@ -129,18 +124,12 @@ def _quicksort(A: list, start: int, end: int) -> list:
 
 def partition(A, start: int, end: int):
 
-    # set_trace()
-
     pivot = A[end]
 
     i = start
     pIndex = start
 
-    # set_trace()
-
     while i < end:
-
-        # set_trace()
 
         if pivot >= A[i]:
 
@@ -159,8 +148,6 @@ def partition(A, start: int, end: int):
     A[pIndex] = pivot
     A[end] = temp
 
-    # set_trace()
-    print(A)
     return pIndex
 
 
@@ -180,7 +167,6 @@ def find_min_not_in_place(A: list, visited) -> int:
 
             min = i
             # visited[min] = True
-
 
     return min
 
