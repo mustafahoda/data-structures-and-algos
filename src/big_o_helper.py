@@ -3,6 +3,7 @@ import os
 import glob
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 from pdb import set_trace
 
@@ -44,8 +45,15 @@ def get_big_o(data_dict):
     x = np.array(list(data_dict.keys()))
     y = np.array(list(data_dict.values()))
 
-    z_1 = np.polyfit(x, y, 1)
-    z_2 = np.polyfit(x,y,2)
+    p1 = np.poly1d(np.polyfit(x, y, 1))
+    p2 = np.poly1d(np.polyfit(x,y,2))
+
+    y1 = p1(x)
+    y2 = p2(x)
+
+    plt.scatter(x, y, color = 'g')
+    plt.plot(x, y1, color = 'r')
+    plt.plot(x, y2, color = 'b')
 
     set_trace()
 

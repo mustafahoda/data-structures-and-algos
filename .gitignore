@@ -128,4 +128,4 @@ dmypy.json
 .idea/*
 
 # Pytest Benchmark Results
-.test/results/*
+test/results/*
