@@ -51,7 +51,7 @@ def benchmark(algo, n):
 @click.option('--algo', help='Which sorting algorithm would you like to find the Big O of?', required=True)
 def big_o(algo):
 
-    for len in [1,5,10,50,100,250,500,750,1000]:
+    for len in [1,5,10,50,100,250,500,750,1000,2050,5000]:
         len = str(len)
         command = 'pytest --benchmark-json=test/results/' + algo + '_sort_' + len + '.json test/test_' + algo + '_sort.py::test_list_len_' + len
         os.system(command)

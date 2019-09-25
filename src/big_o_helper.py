@@ -46,21 +46,28 @@ def get_big_o(data_dict):
     x = np.array(list(data_dict.keys()))
     y = np.array(list(data_dict.values()))
 
-    big_o_n = np.poly1d([1, 0])
-    big_o_n_square = np.poly1d([1,0,0])
+    # Create a polynomial for O(n) and O(n^2)
+    O_n = np.poly1d(np.polyfit(x, y, 1))
+    O_n_2 = np.poly1d(np.polyfit(x, y, 2))
 
-    y1 = big_o_n(x)
-    y2 = big_o_n_square(x)
+    y_O_n = O_n(x)
+    y_O_n_2 = O_n_2(x)
 
     plt.scatter(x, y, color = 'g')
-    plt.scatter(x, y1, color = 'r')
-    plt.scatter(x, y2, color = 'b')
-    # plt.show()
+    plt.scatter(x, y_O_n, color = 'r')
+    plt.scatter(x, y_O_n_2, color = 'b')
+    plt.show()
 
-    mse1 = mse(y1, y)
-    mse2 = mse(y2, y)
-    set_trace()
+    big_O_dict = {
+        mse(y_O_n, y) : 'O(n)',
+        mse(y_O_n_2, y) : 'O(n^2)'
+    }
 
-data_dict = populate_dict('bubble')
+    min_lookup = min(big_O_dict.keys())
+
+    return big_O_dict[min_lookup]
+
+
+data_dict = populate_dict('selection')
 # set_trace()
-get_big_o(data_dict)
+print(get_big_o(data_dict))
