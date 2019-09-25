@@ -10,6 +10,7 @@ pytest-benchmark = "*"
 matplotlib = "*"
 click = "*"
 numpy = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.6"

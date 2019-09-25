@@ -4,6 +4,7 @@ import glob
 
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.metrics import mean_squared_error as mse
 
 from pdb import set_trace
 
@@ -56,6 +57,9 @@ def get_big_o(data_dict):
     plt.plot(x, y2, color = 'b')
 
     set_trace()
+
+    mse1 = mse(y1, y)
+    mse2 = mse(y2, y)
 
 data_dict = populate_dict('bubble')
 # set_trace()
