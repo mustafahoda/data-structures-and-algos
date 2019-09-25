@@ -46,20 +46,20 @@ def get_big_o(data_dict):
     x = np.array(list(data_dict.keys()))
     y = np.array(list(data_dict.values()))
 
-    p1 = np.poly1d(np.polyfit(x, y, 1))
-    p2 = np.poly1d(np.polyfit(x,y,2))
+    big_o_n = np.poly1d([1, 0])
+    big_o_n_square = np.poly1d([1,0,0])
 
-    y1 = p1(x)
-    y2 = p2(x)
+    y1 = big_o_n(x)
+    y2 = big_o_n_square(x)
 
     plt.scatter(x, y, color = 'g')
-    plt.plot(x, y1, color = 'r')
-    plt.plot(x, y2, color = 'b')
-
-    set_trace()
+    plt.scatter(x, y1, color = 'r')
+    plt.scatter(x, y2, color = 'b')
+    # plt.show()
 
     mse1 = mse(y1, y)
     mse2 = mse(y2, y)
+    set_trace()
 
 data_dict = populate_dict('bubble')
 # set_trace()

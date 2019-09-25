@@ -40,7 +40,7 @@ def benchmark(algo, n):
     if algo  not in sorting_algos.list_of_sorting_algos:
         raise Exception('The algo %s can not be used because it doesn\'t exist. Please enter a valid sorting algo from the following list: %s' % (algo, sorting_algos.list_of_sorting_algos))
 
-    list_of_lengths = [1,5,10,100,500,1000,10000,15000]
+    list_of_lengths = [1,5,10,50,100,250,500,750,1000,2050,5000,10000,15000]
     if n not in list_of_lengths:
         raise Exception('The provided n: %s is not in the list of supported lengths. Please pick an n from the following list: %s' % (n, list_of_lengths))
 
@@ -51,7 +51,7 @@ def benchmark(algo, n):
 @click.option('--algo', help='Which sorting algorithm would you like to find the Big O of?', required=True)
 def big_o(algo):
 
-    for len in [1,5,10,100,500,1000]:
+    for len in [1,5,10,50,100,250,500,750,1000]:
         len = str(len)
         command = 'pytest --benchmark-json=test/results/' + algo + '_sort_' + len + '.json test/test_' + algo + '_sort.py::test_list_len_' + len
         os.system(command)
