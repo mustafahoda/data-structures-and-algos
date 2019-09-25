@@ -2,6 +2,8 @@ import json
 import os
 import glob
 
+import numpy as np
+
 from pdb import set_trace
 
 cwd = os.getcwd()
@@ -33,10 +35,20 @@ def populate_dict(algo):
             test_length = get_length(data['benchmarks'][0]['name'])
             test_mean_time = data['benchmarks'][0]['stats']['mean']
 
-            data_dict[test_length] = test_mean_time
+            data_dict[int(test_length)] = test_mean_time
+
+    return data_dict
 
 def get_big_o(data_dict):
-    pass
 
+    x = np.array(list(data_dict.keys()))
+    y = np.array(list(data_dict.values()))
 
-get_big_o('bubble')
+    z_1 = np.polyfit(x, y, 1)
+    z_2 = np.polyfit(x,y,2)
+
+    set_trace()
+
+data_dict = populate_dict('bubble')
+# set_trace()
+get_big_o(data_dict)

@@ -126,3 +126,6 @@ dmypy.json
 
 #IntelliJ Idea File
 .idea/*
+
+# Pytest Benchmark Results
+.test/results/*

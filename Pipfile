@@ -9,7 +9,7 @@ verify_ssl = true
 pytest-benchmark = "*"
 matplotlib = "*"
 click = "*"
-scikit-learn = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.6"
