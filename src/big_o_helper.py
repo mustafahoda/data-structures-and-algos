@@ -6,11 +6,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error as mse
 
-from pdb import set_trace
-
 cwd = os.getcwd()
 
 def get_length(test_name):
+    '''
+    returns the length of the list the test was ran upon
+    '''
 
     ctr = 0
     index = 0
@@ -26,7 +27,20 @@ def get_length(test_name):
     return test_name[index + 1:]
 
 
-def populate_dict(algo):
+def populate_data_dict(algo):
+
+    '''
+    Populates a dictionary data_dict with the length of the list as the key and the mean of it's sorting as the value
+    :param algo: selection, quick, bubble, merge
+    :return:
+
+    {
+        1: 0.000123,
+        5: 0.0034234890,
+        10: 0.0004981237467856430
+    }
+
+    '''
     list_of_files = glob.glob(cwd + '/test/results/' + algo + '_sort_*[0-15000]*.json')
 
     data_dict = {} # dictionary used to store input size the time it took to sort that list
@@ -66,8 +80,3 @@ def get_big_o(data_dict):
     min_lookup = min(big_O_dict.keys())
 
     return big_O_dict[min_lookup]
-
-
-data_dict = populate_dict('selection')
-# set_trace()
-print(get_big_o(data_dict))

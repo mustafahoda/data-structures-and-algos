@@ -1,8 +1,9 @@
-import ast, os, sys
+import ast, os
 
 import click
 
 from src.SortingAlgorithms import sorting_algos
+from src import big_o_helper
 
 
 @click.group()
@@ -51,11 +52,14 @@ def benchmark(algo, n):
 @click.option('--algo', help='Which sorting algorithm would you like to find the Big O of?', required=True)
 def big_o(algo):
 
+    # Generate the results JSON Files for each sample size
     for len in [1,5,10,50,100,250,500,750,1000,2050,5000]:
         len = str(len)
         command = 'pytest --benchmark-json=test/results/' + algo + '_sort_' + len + '.json test/test_' + algo + '_sort.py::test_list_len_' + len
         os.system(command)
 
+    data_dict = big_o_helper.populate_data_dict(algo)
+    click.echo("The Big O Time Complexity of " + algo + " is " + big_o_helper.get_big_o(data_dict))
 
 cli = click.CommandCollection(sources=[cli1])
 
